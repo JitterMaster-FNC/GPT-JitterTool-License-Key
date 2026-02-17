@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT JitterTool - License Key</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GPT JitterTool</h1>
+            <p class="subtitle">License Key Manager</p>
+        </header>
+
+        <main id="app">
+            <div id="login-view" class="card">
+                <h2>ライセンスキーの取得</h2>
+                <p>ソフトウェアを利用するには、公式Discordサーバーへの参加が必要です。</p>
+                <button id="btn-discord-login" class="btn-primary">
+                    <img src="https://cdn.prod.website-files.com/6257adef93867e3d8405e904/6266762743b462446700c836_discord-icon.svg" width="20" height="20" alt="">
+                    Discordでログイン
+                </button>
+            </div>
+
+            <div id="key-view" class="card hidden">
+                <h2>あなたのライセンスキー</h2>
+                <div class="key-display">
+                    <code id="license-key">取得中...</code>
+                    <button id="btn-copy" class="btn-secondary">コピー</button>
+                </div>
+                <div class="status-info">
+                    <p>ステータス: <span id="auth-status">認証済み</span></p>
+                </div>
+                <p class="notice">このキーをソフトウェアのログイン画面に入力してください。</p>
+            </div>
+
+            <div id="error-view" class="card hidden">
+                <h2 class="error-text">エラー</h2>
+                <p id="error-message"></p>
+                <a href="https://discord.gg/YOUR_INVITE_LINK" target="_blank" class="btn-primary">サーバーに参加する</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 GPT JitterTool @Jitter_Ma_Ster</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
