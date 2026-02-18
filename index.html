@@ -7,19 +7,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
     <div class="container">
         <header>
             <h1>GPT JitterTool</h1>
-            <p class="subtitle">License Key Manager</p>
         </header>
 
         <main id="app">
             <div id="login-view" class="card">
-                <h2>ライセンスキーの取得</h2>
-                <p>ソフトウェアを利用するには、公式Discordサーバーへの参加が必要です。</p>
+                <h2>ライセンスキーの発行 / Issue a license key</h2>
+                <p>ライセンスキーを発行するには、Discordサーバーへの参加が必要です。<br>To issue a license key, joining the Discord server is required.</p>
                 <button id="btn-discord-login" class="btn-primary">
-                    <img src="https://cdn.prod.website-files.com/6257adef93867e3d8405e904/6266762743b462446700c836_discord-icon.svg" width="20" height="20" alt="">
-                    Discordでログイン
+                    <svg class="discord-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" width="20" height="20">
+                        <path fill="#fff" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.71,32.65-1.82,56.6.39,80.21a105.73,105.73,0,0,0,32.77,16.15,77.7,77.7,0,0,0,7.32-11.85,68.58,68.58,0,0,1-11.74-5.59c.98-.71,1.92-1.45,2.82-2.22a74.12,74.12,0,0,0,64.78,0c.9.77,1.84,1.51,2.82,2.22a68.58,68.58,0,0,1-11.74,5.59,77.7,77.7,0,0,0,7.32,11.85,105.73,105.73,0,0,0,32.77-16.15C129.58,50.49,125.16,26.74,117.7,8.07ZM42.45,65.69c-6.39,0-11.66-5.88-11.66-13.1s5.11-13.1,11.66-13.1,11.73,5.88,11.73,13.1S48.92,65.69,42.45,65.69Zm42.24,0c-6.39,0-11.66-5.88-11.66-13.1s5.11-13.1,11.66-13.1,11.73,5.88,11.73,13.1S84.77,65.69,84.69,65.69Z"/>
+                    </svg>
+                    Discordでログイン / Log in with Discord
                 </button>
             </div>
 
@@ -38,9 +45,13 @@
             <div id="error-view" class="card hidden">
                 <h2 class="error-text">エラー</h2>
                 <p id="error-message"></p>
-                <a href="https://discord.gg/YOUR_INVITE_LINK" target="_blank" class="btn-primary">サーバーに参加する</a>
+                <a href="https://discord.com/invite/tV4PYUMUQd" target="_blank" class="btn-primary">サーバーに参加する</a>
             </div>
         </main>
+
+        <div class="extra-links">
+            <a href="https://discord.com/invite/tV4PYUMUQd" target="_blank" class="discord-invite-link">サーバーに参加する / Join our Discord server</a>
+        </div>
 
         <footer>
             <p>&copy; 2026 GPT JitterTool @Jitter_Ma_Ster</p>
