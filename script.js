@@ -18,10 +18,9 @@ btnLogin.addEventListener('click', () => {
 btnCopy.addEventListener('click', () => {
     const keyText = licenseKeyDisplay.innerText;
     navigator.clipboard.writeText(keyText).then(() => {
-        const originalText = btnCopy.innerText;
-        btnCopy.innerText = 'コピー完了';
+        btnCopy.innerText = 'クリップボードにコピーしました / Copied to clipboard';
         setTimeout(() => {
-            btnCopy.innerText = originalText;
+            btnCopy.innerText = 'クリップボードにコピー / Copy to Clipboard';
         }, 2000);
     });
 });
