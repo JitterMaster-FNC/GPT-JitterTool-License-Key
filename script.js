@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         window.history.replaceState({}, document.title, "/");
         loginView.classList.add('hidden');
         keyView.classList.remove('hidden');
-        licenseKeyDisplay.innerText = '認証中...';
+        licenseKeyDisplay.innerText = '認証中... / Authenticating…';
 
         try {
             const response = await fetch('/api/auth', {
