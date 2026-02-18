@@ -5,9 +5,9 @@ const loginView = document.getElementById('login-view');
 const keyView = document.getElementById('key-view');
 const errorView = document.getElementById('error-view');
 const licenseKeyDisplay = document.getElementById('license-key');
-const errorMessage = document.getElementById('error-message');
 const btnLogin = document.getElementById('btn-discord-login');
 const btnCopy = document.getElementById('btn-copy');
+const errorMessageArea = document.getElementById('error-message-area');
 
 btnLogin.addEventListener('click', () => {
     const scope = encodeURIComponent('identify guilds');
@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         window.history.replaceState({}, document.title, "/");
         loginView.classList.add('hidden');
         keyView.classList.remove('hidden');
-        licenseKeyDisplay.innerText = '認証中... / Authenticating…';
+        licenseKeyDisplay.innerText = '認証中...';
 
         try {
             const response = await fetch('/api/auth', {
@@ -47,10 +47,10 @@ window.addEventListener('DOMContentLoaded', async () => {
             if (response.ok) {
                 licenseKeyDisplay.innerText = data.key;
             } else {
-                showError(data.error || 'エラーが発生しました。');
+                showError(data.error || 'Unknown Error');
             }
         } catch (e) {
-            showError('サーバーとの通信に失敗しました。');
+            showError('Communication Error');
         }
     }
 });
@@ -59,5 +59,24 @@ function showError(msg) {
     loginView.classList.add('hidden');
     keyView.classList.add('hidden');
     errorView.classList.remove('hidden');
-    errorMessage.innerText = msg;
+    
+    errorMessageArea.innerHTML = '';
+
+    if (msg.includes('Discordサーバーに参加していません')) {
+        const p1 = document.createElement('p');
+        p1.className = 'single-line';
+        p1.innerText = 'Discordサーバーに参加していません。参加してから再度お試しください。';
+        
+        const p2 = document.createElement('p');
+        p2.className = 'single-line';
+        p2.innerText = 'You have not joined the Discord server. Please join it and try again.';
+        
+        errorMessageArea.appendChild(p1);
+        errorMessageArea.appendChild(p2);
+    } else {
+        const p = document.createElement('p');
+        p.className = 'single-line';
+        p.innerText = msg;
+        errorMessageArea.appendChild(p);
+    }
 }
